@@ -20,4 +20,12 @@ export class JobService {
   searchJobs(filters: JobSearchRequest): Observable<Job[]> {
     return this.http.post<Job[]>(`${this.apiUrl}/jobs/search`, filters);
   }
+
+  /**
+   * Communicates with the API: GET /jobs/<id>
+   * Fetches the complete details for a single specific Job
+   */
+  getJobById(id: string): Observable<Job> {
+    return this.http.get<Job>(`${this.apiUrl}/jobs/${id}`);
+  }
 }

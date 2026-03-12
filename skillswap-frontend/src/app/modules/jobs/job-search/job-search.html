@@ -62,7 +62,9 @@
          <h3>{{ job.title }}</h3>
          <span class="badge badge-open">{{ job.category }}</span>
          <p class="budget">💰 ${{ job.budget }}</p>
-         <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Ver Detalhes</button>
+         <a [routerLink]="['/jobs', job.id]" class="btn btn-outline" style="width: 100%; margin-top: 1rem; text-align: center; text-decoration: none; cursor: pointer;">
+           View Details
+         </a>
       </div>
     </div>
     

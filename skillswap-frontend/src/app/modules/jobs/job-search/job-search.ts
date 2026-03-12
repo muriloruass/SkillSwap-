@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { LoadingSpinnerComponent } from '../../../shared/components/loading-spinner/loading-spinner';
 import { ErrorMessageComponent } from '../../../shared/components/error-message/error-message';
@@ -11,7 +12,7 @@ import { Job, JobSearchRequest } from '../../../models/job.model';
 @Component({
   selector: 'app-job-search',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, LoadingSpinnerComponent, ErrorMessageComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, LoadingSpinnerComponent, ErrorMessageComponent],
   templateUrl: './job-search.html',
   styleUrls: ['./job-search.css']
 })
