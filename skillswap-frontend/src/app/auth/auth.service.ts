@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs';
 
@@ -9,6 +9,15 @@ export class Auth {
   private http = inject(HttpClient);
   private apiUrl = 'https://stingray-app-wxhhn.ondigitalocean.app';
 
+  login(data: { email: string; password: string }) {
+    return this.http.post<any>(`${this.apiUrl}/auth/login`, data).pipe(
+      tap((response) => {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('user', JSON.stringify(response.user));
+      })
+    );
+  }
+
   register(data: {
     name: string;
     username: string;
@@ -18,15 +27,6 @@ export class Auth {
     skills: string[];
   }) {
     return this.http.post<any>(`${this.apiUrl}/auth/register`, data);
-  }
-
-  login(data: { email: string; password: string }) {
-    return this.http.post<any>(`${this.apiUrl}/auth/login`, data).pipe(
-      tap((response) => {
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('user', JSON.stringify(response.user));
-      })
-    );
   }
 
   getToken(): string | null {

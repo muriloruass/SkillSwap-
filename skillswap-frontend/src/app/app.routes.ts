@@ -16,8 +16,8 @@ import { CreateJob } from './jobs/create-job/create-job';
 import { MyJobs } from './jobs/my-jobs/my-jobs';
 import { JobDetails } from './jobs/job-details/job-details';
 
-// Guard
-import { authGuard } from './auth/auth-guard';
+// Guard - CORRIGIDO: com PONTO
+import { authGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: Home },
